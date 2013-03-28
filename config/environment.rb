@@ -34,8 +34,8 @@ APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
 
-CONSUMER_KEY = "M7f0MLXCdFK2ShtQNI0w"
-CONSUMER_SECRET = "t9aHYeWC0QK76v40s5YZP6qFmWAah7S351SgAuPpvQ"
+CONSUMER_KEY = ""
+CONSUMER_SECRET = ""
 
 # Set up the controllers and helpers
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
