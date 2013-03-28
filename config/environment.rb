@@ -34,8 +34,8 @@ APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
 
-CONSUMER_KEY = ""
-CONSUMER_SECRET = ""
+CONSUMER_KEY = "M7f0MLXCdFK2ShtQNI0w"
+CONSUMER_SECRET = "t9aHYeWC0QK76v40s5YZP6qFmWAah7S351SgAuPpvQ"
 
 # Set up the controllers and helpers
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
@@ -44,7 +44,7 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
 
-# Twitter.configure do |config|
-#   config.consumer_key = CONSUMER_KEY
-#   config.consumer_secret = CONSUMER_SECRET
-# end
+Twitter.configure do |config|
+  config.consumer_key = CONSUMER_KEY
+  config.consumer_secret = CONSUMER_SECRET
+end

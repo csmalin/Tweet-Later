@@ -11,15 +11,16 @@ get '/' do
   erb :index
 end
 
+get '/status/:job_id' do
+  job_is_complete(params[:job_id]).to_json
+end
+
 get '/:username' do
   @user = User.find_or_create_by_username(params[:username])
   erb :tweets
 end
 
 get '/:username/tweets' do
-  p '*' * 20
-  p 'You made it!'
-  p '*' * 20
   @user = User.find_or_create_by_username(params[:username])
 
   if @user.tweets.empty? || @user.tweets_stale?
@@ -31,7 +32,9 @@ get '/:username/tweets' do
 end
 
 post '/' do  
-  tweet
+  user = User.find(session[:user_id])
+  job_id = user.tweet(params[:tweet])
+  "/status/#{job_id}"
 end
 
 
